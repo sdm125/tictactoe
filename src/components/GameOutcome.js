@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { PlayerContext } from '../contexts/PlayerContext';
 import { GridContext } from '../contexts/GridContext';
-import ResetButton from './ResetButton';
 
 const GameOutcome = () => {
   const { players, isDraw } = useContext(PlayerContext);
@@ -20,7 +19,6 @@ const GameOutcome = () => {
       ) : (
         <div style={{ textAlign: 'center' }}>Draw!</div>
       )}
-      <ResetButton />
     </div>
   );
 };

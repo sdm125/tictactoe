@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: #ffeb3b;
 }
 
 .grid-row {
@@ -20,9 +21,28 @@
   width: 50px;
 }
 .grid-cell:not(:nth-child(3)) {
-  border-right: 2px solid;
+  border-right: 5px solid;
 }
 
 .grid-row:not(:last-child) {
-  border-bottom: 2px solid;
+  border-bottom: 5px solid;
+}
+
+.reset-btn {
+  padding: 10px 30px;
+  font-size: 1rem;
+  color: #fff;
+  background: #007bff;
+  border-radius: 20px;
+  transition: background 250ms;
+}
+
+.game-status-msg {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+}
+
+.reset-btn:hover {
+  background: #0067d5;
 }
