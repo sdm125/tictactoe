@@ -1,6 +1,6 @@
 @import-normalize;
 
-.grid {
+.App {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,8 +14,15 @@
 }
 
 .grid-cell {
-  width: calc(33.3% - 60px);
-  margin: 5px 30px;
-  cursor: pointer;
+  padding: 5px 30px;
   font-size: 5rem;
+  height: 100px;
+  width: 50px;
+}
+.grid-cell:not(:nth-child(3)) {
+  border-right: 2px solid;
+}
+
+.grid-row:not(:last-child) {
+  border-bottom: 2px solid;
 }

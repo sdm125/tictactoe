@@ -7,9 +7,11 @@ const Grid = () => {
 
   return (
     <div className='grid'>
-      {grid.map((gridcells, index) => (
-        <GridRow key={index} row={index} gridcells={gridcells} />
-      ))}
+      <div className='grid-container'>
+        {grid.map((gridcells, index) => (
+          <GridRow key={index} row={index} gridcells={gridcells} />
+        ))}
+      </div>
     </div>
   );
 };

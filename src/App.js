@@ -1,14 +1,21 @@
 import React from 'react';
 import GridContextProvider from './contexts/GridContext';
+import PlayerContextProvider from './contexts/PlayerContext';
+import PlayerTurn from './components/PlayerTurn';
 import Grid from './components/Grid';
+import GameOutcome from './components/GameOutcome';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      <GridContextProvider>
-        <Grid />
-      </GridContextProvider>
+      <PlayerContextProvider>
+        <GridContextProvider>
+          <Grid />
+          <PlayerTurn />
+          <GameOutcome />
+        </GridContextProvider>
+      </PlayerContextProvider>
     </div>
   );
 }

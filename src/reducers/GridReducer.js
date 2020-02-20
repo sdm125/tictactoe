@@ -5,6 +5,12 @@ export default (state, action) => {
       updatedGrid[action.payload.row][action.payload.cell] =
         action.payload.mark;
       return updatedGrid;
+    case 'RESET_GRID':
+      return [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+      ];
     default:
       return state;
   }
