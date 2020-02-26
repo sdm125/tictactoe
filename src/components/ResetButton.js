@@ -8,7 +8,7 @@ const ResetButton = () => {
 
   return (
     <button
-      class='reset-btn'
+      className='reset-btn'
       onClick={() => {
         gridDispatch({ type: 'RESET_GRID' });
         playerDispatch({ type: 'RESET_PLAYERS' });

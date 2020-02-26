@@ -4,11 +4,11 @@ import GridCell from './GridCell';
 const GridRow = props => {
   return (
     <div className='grid-row'>
-      {props.gridcells.map((mark, index) => (
+      {props.gridMarks.map((mark, index) => (
         <GridCell
           key={`${props.row}${index}`}
           row={props.row}
-          cell={index}
+          col={index}
           mark={mark}
         />
       ))}

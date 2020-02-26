@@ -41,21 +41,19 @@ const isDiagonalWin = grid => {
   if (grid[0][0] !== '' && grid[1][1] !== '' && grid[2][2] !== '') {
     if (grid[0][0] === grid[1][1] && grid[1][1] === grid[2][2]) {
       return true;
-    } else {
-      return false;
     }
   }
 
   if (grid[0][2] !== '' && grid[1][1] !== '' && grid[2][0] !== '') {
     if (grid[0][2] === grid[1][1] && grid[1][1] === grid[2][0]) {
       return true;
-    } else {
-      return false;
     }
   }
+
+  return false;
 };
 
-const isDraw = grid => {
+const isBoardFull = grid => {
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       if (grid[i][j] === '') {
@@ -71,12 +69,14 @@ const PlayerContextProvider = props => {
     {
       mark: 'X',
       active: true,
-      hasWon: false
+      hasWon: false,
+      score: 0
     },
     {
       mark: 'O',
       active: false,
-      hasWon: false
+      hasWon: false,
+      score: 0
     }
   ]);
 
@@ -88,7 +88,7 @@ const PlayerContextProvider = props => {
         isRowWin,
         isColumnWin,
         isDiagonalWin,
-        isDraw
+        isBoardFull
       }}
     >
       {props.children}

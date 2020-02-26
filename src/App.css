@@ -1,12 +1,23 @@
 @import-normalize;
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #ffeb3b;
+}
 
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #ffeb3b;
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
 }
 
 .grid-row {
@@ -20,6 +31,7 @@
   height: 100px;
   width: 50px;
 }
+
 .grid-cell:not(:nth-child(3)) {
   border-right: 5px solid;
 }
@@ -31,18 +43,19 @@
 .reset-btn {
   padding: 10px 30px;
   font-size: 1rem;
-  color: #fff;
-  background: #007bff;
+  color: #000;
+  background: #feeb3a;
   border-radius: 20px;
-  transition: background 250ms;
+  transition: background 0.25s;
+  border: 2px solid;
+}
+
+.reset-btn:hover {
+  background: #e9d941;
 }
 
 .game-status-msg {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
   font-size: 2rem;
-}
-
-.reset-btn:hover {
-  background: #0067d5;
 }

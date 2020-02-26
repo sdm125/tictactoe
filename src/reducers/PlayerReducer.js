@@ -9,6 +9,7 @@ export default (state, action) => {
       return [...state].map(player => {
         if (player.mark === action.payload) {
           player.hasWon = true;
+          player.score++;
         }
         return player;
       });
@@ -16,18 +17,11 @@ export default (state, action) => {
       const winner = [...state].filter(player => player.hasWon);
       return winner;
     case 'RESET_PLAYERS':
-      return [
-        {
-          mark: 'X',
-          active: true,
-          hasWon: false
-        },
-        {
-          mark: 'O',
-          active: false,
-          hasWon: false
-        }
-      ];
+      return [...state].map(player => {
+        player.active = player.hasWon ? true : false;
+        player.hasWon = false;
+        return player;
+      });
     default:
       return state;
   }
