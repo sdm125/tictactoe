@@ -18,7 +18,7 @@ export default (state, action) => {
       return winner;
     case 'RESET_PLAYERS':
       return [...state].map(player => {
-        player.active = player.hasWon ? true : false;
+        player.active = player.mark === 'X' ? true : false;
         player.hasWon = false;
         return player;
       });
