@@ -2,23 +2,20 @@ import React, { useContext, useEffect } from 'react';
 import { GridContext } from '../contexts/GridContext';
 import GridRow from './GridRow';
 import { PlayerContext } from '../contexts/PlayerContext';
+import { GameContext } from '../contexts/GameContext';
 
 const Grid = () => {
   const { grid } = useContext(GridContext);
-  const {
-    players,
-    playerDispatch,
-    isRowWin,
-    isColumnWin,
-    isDiagonalWin,
-    isBoardFull
-  } = useContext(PlayerContext);
+  const { players, playerDispatch } = useContext(PlayerContext);
+  const { isRowWin, isColumnWin, isDiagonalWin, isGridFull } = useContext(
+    GameContext
+  );
   const [inactivePlayer] = players.filter(player => !player.active);
 
   useEffect(() => {
     if (isRowWin(grid) || isColumnWin(grid) || isDiagonalWin(grid)) {
       playerDispatch({ type: 'SET_WINNER', payload: inactivePlayer.mark });
-    } else if (isBoardFull(grid)) {
+    } else if (isGridFull(grid)) {
       playerDispatch({ type: 'SET_WINNER', payload: 'Draw!' });
     }
   }, [
@@ -26,7 +23,7 @@ const Grid = () => {
     isRowWin,
     isColumnWin,
     isDiagonalWin,
-    isBoardFull,
+    isGridFull,
     playerDispatch,
     inactivePlayer
   ]);

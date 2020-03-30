@@ -1,6 +1,7 @@
 import React from 'react';
 import GridContextProvider from './contexts/GridContext';
 import PlayerContextProvider from './contexts/PlayerContext';
+import GameContextProvider from './contexts/GameContext';
 import PlayerTurn from './components/PlayerTurn';
 import Grid from './components/Grid';
 import GameOutcome from './components/GameOutcome';
@@ -12,17 +13,19 @@ function App() {
   return (
     <div className='App'>
       <h1>Tic Tac Toe</h1>
-      <PlayerContextProvider>
-        <GridContextProvider>
-          <Score />
-          <Grid />
-          <div className='game-status-msg'>
-            <PlayerTurn />
-            <GameOutcome />
-          </div>
-          <ResetButton />
-        </GridContextProvider>
-      </PlayerContextProvider>
+      <GameContextProvider>
+        <PlayerContextProvider>
+          <GridContextProvider>
+            <Score />
+            <Grid />
+            <div className='game-status-msg'>
+              <PlayerTurn />
+              <GameOutcome />
+            </div>
+            <ResetButton />
+          </GridContextProvider>
+        </PlayerContextProvider>
+      </GameContextProvider>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { PlayerContext } from '../contexts/PlayerContext';
 
 const Score = () => {
   const { players } = useContext(PlayerContext);
-  console.log(players);
   return (
     <div
       style={{
