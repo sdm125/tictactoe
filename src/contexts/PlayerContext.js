@@ -1,6 +1,5 @@
 import React, { createContext, useReducer } from 'react';
 import playerReducer from '../reducers/PlayerReducer';
-// import socketIOClient from 'socket.io-client';
 
 export const PlayerContext = createContext();
 
