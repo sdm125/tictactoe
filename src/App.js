@@ -10,8 +10,8 @@ function App() {
       <h1>Tic Tac Toe</h1>
       <Router>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/game/:type' component={Game} />
+          <Route exact path='/' component={Game} />
+          {/* <Route exact path='/game/:type' component={Game} /> */}
         </Switch>
       </Router>
     </div>
