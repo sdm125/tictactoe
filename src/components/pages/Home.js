@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import OnlinePlayerContext from '../../contexts/OnlinePlayerContext';
 import OnlinePlayers from '../OnlinePlayers';
 
 function Home() {
@@ -7,7 +8,9 @@ function Home() {
   return (
     <div style={{ width: '50%', display: 'flex', justifyContent: 'center' }}>
       {showOnlinePlayers ? (
-        <OnlinePlayers />
+        <OnlinePlayerContext>
+          <OnlinePlayers setShowOnlinePlayers={setShowOnlinePlayers} />
+        </OnlinePlayerContext>
       ) : (
         <div>
           <p style={{ textAlign: 'center' }}>

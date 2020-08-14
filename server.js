@@ -6,12 +6,21 @@ const socketio = require('socket.io');
 const io = socketio(server);
 const players = [];
 
-io.on('connection', (socket) => {
+const waiting = io.of('/waiting');
+
+waiting.on('connection', (socket) => {
   socket.emit('message', 'socket connected');
 
   socket.on('playerJoin', (name) => {
-    players.push(name);
-    io.emit('playerHasJoin', players);
+    players.push({ id: socket.id, name });
+
+    waiting.emit('playerHasJoin', players);
+  });
+
+  socket.on('playGame', (gameRequest) => {
+    waiting
+      .to(gameRequest.requestPlayer)
+      .emit('wouldYouchallengeToGameLikeToPlay', gameRequest.name);
   });
 });
 
